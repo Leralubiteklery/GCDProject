@@ -54,16 +54,25 @@
                                     <constraint firstAttribute="height" constant="341" id="xqr-M1-MpV"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="3cX-wd-E7Z">
+                                <rect key="frame" x="186" y="280" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="e8L-gw-RzU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="3cX-wd-E7Z" firstAttribute="centerX" secondItem="y0G-zb-69E" secondAttribute="centerX" id="3H9-bN-LOh"/>
+                            <constraint firstItem="3cX-wd-E7Z" firstAttribute="centerY" secondItem="y0G-zb-69E" secondAttribute="centerY" id="bsp-Za-hEl"/>
                             <constraint firstItem="y0G-zb-69E" firstAttribute="width" secondItem="e8L-gw-RzU" secondAttribute="width" id="cQ7-Hn-vVC"/>
                             <constraint firstItem="y0G-zb-69E" firstAttribute="top" secondItem="e8L-gw-RzU" secondAttribute="top" constant="17" id="fD9-s9-0a7"/>
                             <constraint firstItem="y0G-zb-69E" firstAttribute="centerX" secondItem="e8L-gw-RzU" secondAttribute="centerX" id="lhK-cd-Yh7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cXr-VN-zvh"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="3cX-wd-E7Z" id="TCe-lr-vKG"/>
+                        <outlet property="imageView" destination="y0G-zb-69E" id="STa-jP-nJA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfT-eq-YHS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
