@@ -19,6 +19,8 @@ class SecondViewController: UIViewController {
         }
         
         set {
+            activityIndicator.stopAnimating()
+            activityIndicator.isHidden = true
             imageView.image = newValue
             imageView.sizeToFit()
         }
@@ -34,8 +36,15 @@ class SecondViewController: UIViewController {
         imageURL = URL(
             string: "https://upload.wikimedia.org/wikipedia/commons/0/07/Huge_ball_at_Vilnius_center.jpg"
         )
-        guard let url = imageURL, let imageData = try? Data(contentsOf: url) else { return }
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        let queue = DispatchQueue.global(qos: .utility)
+        queue.async {
+            guard let url = self.imageURL, let imageData = try? Data(contentsOf: url) else { return }
+            DispatchQueue.main.async {
                 self.image = UIImage(data: imageData)
+            }
         }
     }
+}
 
