@@ -30,6 +30,36 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchImage()
+        delay(3) {
+            self.loginAlert()
+        }
+    }
+    
+    fileprivate func delay( _ delay: Int, closure: @escaping () -> ()) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(delay)) {
+            closure()
+        }
+    }
+    
+    fileprivate func loginAlert() {
+        let alertController = UIAlertController(title: "Have an account?", message: "enter login and password", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        alertController.addTextField { (userNameTF) in
+            userNameTF.placeholder = "Enter login"
+        }
+        
+        alertController.addTextField{ (passwordTF) in
+            passwordTF.placeholder = "Enter password"
+            passwordTF.isSecureTextEntry = true
+        }
+        
+        self.present(alertController, animated: true)
     }
     
     fileprivate func fetchImage() {
